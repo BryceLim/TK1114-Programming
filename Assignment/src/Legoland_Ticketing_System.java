@@ -34,6 +34,20 @@ public class Legoland_Ticketing_System {
 	//Print the welcome statements
 	public static void WELCOME(){
 		System.out.println("Welcome to Legoland Malaysia\n");
+		System.out.println("*****               ****************  ******************  *******************  *****               ******************  ******          *********  **************     ");
+		System.out.println("*   *               *              *  *                *  *                 *  *   *               *                *  *    *         *        *  *             *     ");
+		System.out.println("*   *               *    ***********  *   **************  *   ***********   *  *   *               *   **********   *  *    *        *    *    *  *   *******    *    ");
+		System.out.println("*   *               *    *            *   *               *   *         *   *  *   *               *   *        *   *  *    *       *    **    *  *   *      *    *   ");
+		System.out.println("*   *               *    *            *   *               *   *         *   *  *   *               *   *        *   *  *    *      *    * *    *  *   *       *    *  ");
+		System.out.println("*   *               *    *            *   *               *   *         *   *  *   *               *   **********   *  *    *     *    *  *    *  *   *        *   *  ");
+		System.out.println("*   *               *    ***********  *   *               *   *         *   *  *   *               *   *        *   *  *    *    *    *   *    *  *   *        *   *  ");
+		System.out.println("*   *               *              *  *   *     ********  *   *         *   *  *   *               *   **********   *  *    *   *    *    *    *  *   *        *   *  ");
+		System.out.println("*   *               *    ***********  *   *     *      *  *   *         *   *  *   *               *   *        *   *  *    *  *    *     *    *  *   *        *   *  ");
+		System.out.println("*   *               *    *            *   *     ****   *  *   *         *   *  *   *               *   *        *   *  *    * *    *      *    *  *   *       *    *  ");
+		System.out.println("*   *               *    *            *   *        *   *  *   *         *   *  *   *               *   *        *   *  *    **    *       *    *  *   *      *    *   ");
+		System.out.println("*   **************  *    ***********  *   **********   *  *   ***********   *  *   **************  *   *        *   *  *    *    *        *    *  *   *******    *    ");
+		System.out.println("*                *  *              *  *                *  *                 *  *                *  *   *        *   *  *        *         *    *  *             *     ");
+		System.out.println("******************  ****************  ******************  *******************  ******************  *****        *****  *********          ******  **************      ");
 	}
 	
 	//Allows users to select their nationality
