@@ -34,7 +34,7 @@ public class Legoland_Ticketing_System {
 
 	//Print the welcome statements
 	public static void WELCOME(){
-		System.out.println("Welcome to Legoland Malaysia\n");
+		System.out.println();
 		System.out.println("*****               ****************  ******************  *******************  *****               ******************  ******          *********  **************     ");
 		System.out.println("*   *               *              *  *                *  *                 *  *   *               *                *  *    *         *        *  *             *     ");
 		System.out.println("*   *               *    ***********  *   **************  *   ***********   *  *   *               *   **********   *  *    *        *    *    *  *   *******    *    ");
@@ -49,6 +49,11 @@ public class Legoland_Ticketing_System {
 		System.out.println("*   **************  *    ***********  *   **********   *  *   ***********   *  *   **************  *   *        *   *  *    *    *        *    *  *   *******    *    ");
 		System.out.println("*                *  *              *  *                *  *                 *  *                *  *   *        *   *  *        *         *    *  *             *     ");
 		System.out.println("******************  ****************  ******************  *******************  ******************  *****        *****  *********          ******  **************      ");
+		System.out.println("Welcome to Legoland Malaysia!!!");
+		System.out.println("Operating hours : Monday to Sunday (10a.m. - 6p.m.)");
+		System.out.println("                  *Closed every Wednesday*");
+		System.out.println("Location        : 7, Persiaran Medini Utara 3, 79100 Iskandar Puteri, Johor");
+		System.out.println();
 	}
 	
 	//Allows users to select their nationality
