@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Legoland_Ticketing_System {
 	public static Scanner input = new Scanner(System.in);
 	
@@ -38,13 +39,28 @@ public class Legoland_Ticketing_System {
 	//Allows users to select their nationality
 	public static int NATIONALITY(){
 		int nationality = 0;
+		String malaysian = "malaysian";
+		String singaporean = "singaporean";
+		String others = "others";
+		String one = "1";
+		String two = "2";
+		String three = "3";
 		while(!(nationality == 1 || nationality == 2 || nationality ==3)){
 			System.out.println("Please choose your nationality:");
 			System.out.println("1. Malaysian");
 			System.out.println("2. Singaporean");
 			System.out.println("3. Others");
 			System.out.println();
-			nationality = input.nextInt();
+			System.out.print("My nationality is ");
+			String user_input = input.next();
+			if(user_input.equalsIgnoreCase(malaysian) || user_input.equals(one))
+				nationality = 1;
+			else if(user_input.equalsIgnoreCase(singaporean) || user_input.equals(two))
+				nationality = 2;
+			else if(user_input.equalsIgnoreCase(others) || user_input.equals(three))
+				nationality = 3;
+			else 
+				nationality = 0;
 			System.out.println();
 		}
 		return nationality;
