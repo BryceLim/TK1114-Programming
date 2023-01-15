@@ -17,15 +17,16 @@ public class Legoland_Ticketing_System {
 		package_price = PACKAGE_PRICE(NATIONALITY()); //save package price
 
 		while(buy_more == 'y'){
+			type_of_package = 0;
 			while(type_of_package == 0){
 				type_of_pass = TYPE_OF_PASS(); //save type of pass chosen
 				type_of_package = TYPE_OF_PACKAGE(type_of_pass, package_price); //save the type of package chosen
 				//if back is chosen, the while loops remains true
 			}
-			num_of_guest = NUMBER_OF_GUEST(package_price,type_of_package); //save the number of guest
+			num_of_guest = NUMBER_OF_GUEST(package_price, type_of_package); //save the number of guest
 			total_price += TOTAL_PRICE(num_of_guest, type_of_package, package_price); //save the total price of the ticket
-			System.out.println("Do you wish to buy more tickets? y/n");
-			buy_more = input.next().charAt(0);
+			buy_more = 'a';
+			buy_more = yes_or_no(buy_more);
 			System.out.println();
 		}
 		System.out.printf("Total price = RM%.2f\n", (double)total_price);
@@ -138,25 +139,21 @@ public class Legoland_Ticketing_System {
 	}
 
 	public static void SHOW_PACKAGE_PRICES(int package_num, int[][] package_price){
-		System.out.println("   Children: RM" + package_price[package_num][0] +".00 Adult: RM" + package_price[package_num][1] + ".00 Senior: RM" + package_price[package_num][0] + ".00 Children under 3: Free Admission");
+		System.out.println("   Children        : RM" + package_price[package_num][0] +".00\n   Adult           : RM" + package_price[package_num][1] + ".00\n   Senior          : RM" + package_price[package_num][0] + ".00\n   Children under 3: Free Admission");
 	}
 
 	//Display the price of package and allow the user to enter the number of guest visiting
 	public static int[] NUMBER_OF_GUEST(int[][] package_price,int type_of_package){
 		int[] num_of_guest = new int[4];
-		System.out.println("Adult            : RM"+package_price[type_of_package][1] +".00");
-		System.out.println("Children         : RM"+package_price[type_of_package][0] +".00");
-		System.out.println("Senior           : RM"+package_price[type_of_package][0] +".00");
-		System.out.println("Children under 3 : Free admission");
 		System.out.println();
 		System.out.println("Please insert number of guest");
-		System.out.print("Adult : ");
+		System.out.print("Adult              (RM"+package_price[type_of_package][1] +".00) : ");
 		num_of_guest[0] = input.nextInt();
-		System.out.print("Children : ");
+		System.out.print("Children           (RM"+package_price[type_of_package][0] +".00) : ");
 		num_of_guest[1] = input.nextInt();
-		System.out.print("Senior : ");
+		System.out.print("Senior             (RM"+package_price[type_of_package][0] +".00) : ");
 		num_of_guest[2] = input.nextInt();
-		System.out.print("Children under 3 : ");
+		System.out.print("Children under 3        (Free): ");
 		num_of_guest[3] = input.nextInt();
 		System.out.println();
 		return num_of_guest;
@@ -169,6 +166,25 @@ public class Legoland_Ticketing_System {
 		return total_price;
 	}
 	
+	public static char yes_or_no(char buy_more){
+		String yes_or_no;
+		String yes = "yes";
+		String no = "no";
+		String y = "y";
+		String n = "n";
+		while(!(buy_more == 'y' || buy_more == 'n')){
+		System.out.println("Do you wish to buy more tickets? yes/no");
+		yes_or_no = input.next();
+		if(yes_or_no.equalsIgnoreCase(yes) || yes_or_no.equalsIgnoreCase(y))
+			buy_more = 'y';
+		else if(yes_or_no.equalsIgnoreCase(no) || yes_or_no.equalsIgnoreCase(n))
+			buy_more = 'n';
+		else 
+			buy_more = 'a';
+		}
+		return(buy_more);
+	}
+
 	//Save price according to the nationality
 	public static int[][] PACKAGE_PRICE(int nationality){
 		int[][] package_price = new int[9][2];
