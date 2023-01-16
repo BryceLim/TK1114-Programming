@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class test{
+public class CreateFile{
     public static void main(String[] args) throws IOException{
 
             File file = new File("test.txt");
