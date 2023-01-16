@@ -8,8 +8,8 @@ public class SecCQ2{
         try{
             DecimalFormat df1 = new DecimalFormat("0.0");
             DecimalFormat df2 = new DecimalFormat("0.00");
-            Scanner input = new Scanner(new File("C:\\Users\\bryce\\Desktop\\TK1114 Programming\\Java program\\Tutorial10\\src\\inBMI.txt"));
-            FileWriter fw = new FileWriter("C:\\Users\\bryce\\Desktop\\TK1114 Programming\\Java program\\Tutorial10\\src\\outBMI.txt");
+            Scanner input = new Scanner(new File("inBMI.txt"));
+            FileWriter fw = new FileWriter("outBMI.txt");
             PrintWriter pw = new PrintWriter(fw);
 
             while(input.hasNext()){

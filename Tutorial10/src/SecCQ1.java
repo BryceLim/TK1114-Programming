@@ -5,8 +5,8 @@ public class SecCQ1{
     public static void main(String[] args){
 
         try{
-            Scanner input = new Scanner(new File("C:\\Users\\bryce\\Desktop\\TK1114 Programming\\Java program\\Tutorial10\\src\\inMarks.txt"));
-            FileWriter fw = new FileWriter("C:\\Users\\bryce\\Desktop\\TK1114 Programming\\Java program\\Tutorial10\\src\\outMarks.txt");
+            Scanner input = new Scanner(new File("inMarks.txt"));
+            FileWriter fw = new FileWriter("outMarks.txt");
             PrintWriter pw = new PrintWriter(fw);
 
             while(input.hasNext()){
