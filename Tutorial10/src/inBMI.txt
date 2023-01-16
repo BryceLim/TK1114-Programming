@@ -1,4 +1,0 @@
-Aini    1.5  72
-Sani    1.67 55
-Mayling 1.49 39
-Rajan   1.80 90
