@@ -40,7 +40,7 @@ public class SecCQ2{
             System.out.println("Output File Completed");
         }
 
-        catch(IOException e){
+        catch(IOException error){
             System.out.println("An error occurred");
         }
     }
