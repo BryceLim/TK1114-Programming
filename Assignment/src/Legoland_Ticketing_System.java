@@ -6,16 +6,18 @@ public class Legoland_Ticketing_System {
 	
 	public static void main(String[] args) {
 		int[][] package_price = new int[9][2];
-		int total_price = 0;
 		int type_of_pass = 0;
 		int type_of_package = 0;
 		int[] num_of_guest = new int[4];
+		int total_price = 0;
+		int sub_total = 0;
 		char buy_more = 'y';
 		String name = new String();
 		
 		name = WELCOME();
 		package_price = PACKAGE_PRICE(NATIONALITY()); //save package price
 		while(buy_more == 'y'){
+			sub_total = 0;
 			type_of_package = 0;
 			while(type_of_package == 0){
 				type_of_pass = TYPE_OF_PASS(); //save type of pass chosen
@@ -23,7 +25,8 @@ public class Legoland_Ticketing_System {
 				//if back is chosen, the while loops remains true
 			}
 			num_of_guest = NUMBER_OF_GUEST(package_price, type_of_package); //save the number of guest
-			total_price += TOTAL_PRICE(num_of_guest, type_of_package, package_price); //save the total price of the ticket
+			sub_total = SUB_TOTAL(num_of_guest, type_of_package, package_price);
+			total_price += sub_total; //save the total price of the ticket
 			buy_more = 'a';
 			buy_more = yes_or_no(buy_more);
 			System.out.println();
@@ -168,10 +171,10 @@ public class Legoland_Ticketing_System {
 	}
 
 	//Calculate and display the total price of all tickets
-	public static int TOTAL_PRICE(int[] num_of_guest, int type_of_package, int[][] package_price){
-		int total_price = 0;
-		total_price += ((num_of_guest[1] + num_of_guest[2]) * package_price[type_of_package][0]) + (num_of_guest[0] * package_price[type_of_package][1]);
-		return total_price;
+	public static int SUB_TOTAL(int[] num_of_guest, int type_of_package, int[][] package_price){
+		int sub_total = 0;
+		sub_total += ((num_of_guest[1] + num_of_guest[2]) * package_price[type_of_package][0]) + (num_of_guest[0] * package_price[type_of_package][1]);
+		return sub_total;
 	}
 	
 	public static char yes_or_no(char buy_more){
