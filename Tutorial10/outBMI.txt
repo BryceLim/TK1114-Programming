@@ -1,0 +1,24 @@
+Name : Aini
+Height : 1.5
+Weight : 72.0
+BMI : 32.00
+Status : Obese
+
+Name : Sani
+Height : 1.67
+Weight : 55.0
+BMI : 19.72
+Status : Normal
+
+Name : Mayling
+Height : 1.49
+Weight : 39.0
+BMI : 17.57
+Status : Underweight
+
+Name : Rajan
+Height : 1.8
+Weight : 90.0
+BMI : 27.78
+Status : Overweight
+
