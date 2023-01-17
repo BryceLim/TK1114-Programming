@@ -56,7 +56,7 @@ public class Legoland_Ticketing_System {
 		System.out.println("                  *Closed every Wednesday*");
 		System.out.println("Location        : 7, Persiaran Medini Utara 3, 79100 Iskandar Puteri, Johor");
 		System.out.println();
-		System.out.print("Please enter you name : ");
+		System.out.print("Please enter your name : ");
 		String name = input.nextLine();
 		System.out.println();
 		return name;
@@ -125,6 +125,7 @@ public class Legoland_Ticketing_System {
 				System.out.println();
 				System.out.println("0. Back");
 				System.out.println();
+				System.out.print("Package Number : ");
 				type_of_package = input.nextInt();
 				System.out.println();
 			}
@@ -139,6 +140,7 @@ public class Legoland_Ticketing_System {
 				System.out.println();
 				System.out.println("0. Back");
 				System.out.println();
+				System.out.print("Package Number : ");
 				type_of_package = input.nextInt();
 				System.out.println();
 			}
@@ -196,7 +198,7 @@ public class Legoland_Ticketing_System {
 		return(buy_more);
 	}
 
-	public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int total_price){
+	public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
 		File receipt = new File("Receipt_for_" + name + ".txt");
 		
 	}
