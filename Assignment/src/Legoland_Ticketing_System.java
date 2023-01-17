@@ -3,8 +3,9 @@ import java.io.*;
 
 public class Legoland_Ticketing_System {
 	public static Scanner input = new Scanner(System.in);
-	
-	public static void main(String[] args) {
+	public static PrintWriter pw;
+
+	public static void main(String[] args) throws IOException {
 		int[][] package_price = new int[9][2];
 		int type_of_pass = 0;
 		int type_of_package = 0;
@@ -27,15 +28,29 @@ public class Legoland_Ticketing_System {
 			num_of_guest = NUMBER_OF_GUEST(package_price, type_of_package); //save the number of guest
 			sub_total = SUB_TOTAL(num_of_guest, type_of_package, package_price);
 			total_price += sub_total; //save the total price of the ticket
+			pw.println("Package : " + NAME_OF_PACKAGE(type_of_package));
+			pw.println("Adult             (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM" + (package_price[type_of_package][1]*num_of_guest[0]) + ".00");
+			pw.println("Children          (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[1] + "    RM" + (package_price[type_of_package][0]*num_of_guest[1]) + ".00");
+			pw.println("Senior            (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[2] + "    RM" + (package_price[type_of_package][0]*num_of_guest[2]) + ".00");
+			pw.println("Children under 3  (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM0.00");
+			pw.println("                                  --------------");
+			pw.println("                                     RM" + sub_total + ".00");
+			pw.println();
 			buy_more = 'a';
 			buy_more = yes_or_no(buy_more);
 			System.out.println();
 		}
 		System.out.printf("Total price = RM%.2f\n", (double)total_price);
+		pw.println("------------------------------------------------");
+		pw.println("Total price                          RM"+ total_price + ".00");
+		pw.println("------------------------------------------------");
+		pw.println();
+		pw.println("Please present this receipt upon collection of tickets");
+		pw.close();
 	}
 
 	//Print the welcome statements
-	public static String WELCOME(){
+	public static String WELCOME() throws IOException{
 		System.out.println();
 		System.out.println("*****               ****************  ******************  *******************  *****               ******************  ******          *********  **************     ");
 		System.out.println("*   *               *              *  *                *  *                 *  *   *               *                *  *    *         *        *  *             *     ");
@@ -59,6 +74,9 @@ public class Legoland_Ticketing_System {
 		System.out.print("Please enter your name : ");
 		String name = input.nextLine();
 		System.out.println();
+		pw = new PrintWriter("Receipt for " + name + ".txt");
+		pw.println("Name : " + name);
+		pw.println();
 		return name;
 	}
 	
@@ -100,6 +118,7 @@ public class Legoland_Ticketing_System {
 			System.out.println("1. Day Ticket");
 			System.out.println("2. Annual Pass");
 			System.out.println();
+			System.out.print("Type of pass : ");
 			type_of_pass = input.nextInt();
 			System.out.println();
 		}
@@ -155,6 +174,23 @@ public class Legoland_Ticketing_System {
 		System.out.println("   Children        : RM" + package_price[package_num][0] +".00\n   Adult           : RM" + package_price[package_num][1] + ".00\n   Senior          : RM" + package_price[package_num][0] + ".00\n   Children under 3: Free Admission");
 	}
 
+	public static String NAME_OF_PACKAGE(int type_of_package){
+		String name_of_package;
+		switch(type_of_package){
+			case 1: name_of_package = "Theme Park";break;
+			case 2: name_of_package = "Water Park";break;
+			case 3: name_of_package = "SEA LIFE";break;
+			case 4: name_of_package = "Theme Park + SEA LIFE";break;
+			case 5: name_of_package = "Theme Park + Water Park + SEA LIFE";break;
+			case 6: name_of_package = "Single Park Pass";break;
+			case 7: name_of_package = "Double Park Pass";break;
+			case 8: name_of_package = "Triple Park Pass";break;
+			default : name_of_package = "";break;
+
+		}
+		return name_of_package;
+	}
+
 	//Display the price of package and allow the user to enter the number of guest visiting
 	public static int[] NUMBER_OF_GUEST(int[][] package_price,int type_of_package){
 		int[] num_of_guest = new int[4];
@@ -198,10 +234,10 @@ public class Legoland_Ticketing_System {
 		return(buy_more);
 	}
 
-	public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
+	/*public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
 		File receipt = new File("Receipt_for_" + name + ".txt");
 		
-	}
+	}*/
 
 	//Save price according to the nationality
 	public static int[][] PACKAGE_PRICE(int nationality){
