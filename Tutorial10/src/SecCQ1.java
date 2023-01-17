@@ -12,16 +12,15 @@ public class SecCQ1{
             while(input.hasNext()){
                 String name = input.next();
                 String matric = input.next();
-                String marks = input.next();
-                int mark = Integer.parseInt(marks);
+                int marks = input.nextInt();
                 char grade;
-                if(mark < 50)
+                if(marks < 50)
                     grade = 'E';
-                else if(mark < 60)
+                else if(marks < 60)
                     grade = 'D';
-                else if(mark < 70)
+                else if(marks < 70)
                     grade = 'C';
-                else if(mark < 80)
+                else if(marks < 80)
                     grade = 'B';
                 else
                     grade = 'A';

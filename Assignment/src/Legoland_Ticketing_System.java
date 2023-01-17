@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 
 public class Legoland_Ticketing_System {
 	public static Scanner input = new Scanner(System.in);
@@ -6,16 +7,14 @@ public class Legoland_Ticketing_System {
 	public static void main(String[] args) {
 		int[][] package_price = new int[9][2];
 		int total_price = 0;
-		//int nationality = 0;
 		int type_of_pass = 0;
 		int type_of_package = 0;
 		int[] num_of_guest = new int[4];
 		char buy_more = 'y';
+		String name = new String();
 		
-		WELCOME();
-		//nationality = NATIONALITY();
+		name = WELCOME();
 		package_price = PACKAGE_PRICE(NATIONALITY()); //save package price
-
 		while(buy_more == 'y'){
 			type_of_package = 0;
 			while(type_of_package == 0){
@@ -33,7 +32,7 @@ public class Legoland_Ticketing_System {
 	}
 
 	//Print the welcome statements
-	public static void WELCOME(){
+	public static String WELCOME(){
 		System.out.println();
 		System.out.println("*****               ****************  ******************  *******************  *****               ******************  ******          *********  **************     ");
 		System.out.println("*   *               *              *  *                *  *                 *  *   *               *                *  *    *         *        *  *             *     ");
@@ -54,6 +53,10 @@ public class Legoland_Ticketing_System {
 		System.out.println("                  *Closed every Wednesday*");
 		System.out.println("Location        : 7, Persiaran Medini Utara 3, 79100 Iskandar Puteri, Johor");
 		System.out.println();
+		System.out.print("Please enter you name : ");
+		String name = input.nextLine();
+		System.out.println();
+		return name;
 	}
 	
 	//Allows users to select their nationality
@@ -188,6 +191,11 @@ public class Legoland_Ticketing_System {
 			buy_more = 'a';
 		}
 		return(buy_more);
+	}
+
+	public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int total_price){
+		File receipt = new File("Receipt_for_" + name + ".txt");
+		
 	}
 
 	//Save price according to the nationality

@@ -6,7 +6,6 @@ public class SecCQ2{
     public static void main(String[] args){
 
         try{
-            DecimalFormat df1 = new DecimalFormat("0.0");
             DecimalFormat df2 = new DecimalFormat("0.00");
             Scanner input = new Scanner(new File("inBMI.txt"));
             FileWriter fw = new FileWriter("outBMI.txt");
@@ -14,11 +13,9 @@ public class SecCQ2{
 
             while(input.hasNext()){
                 String name = input.next();
-                String height = input.next();
-                String weight = input.next();
-                Double int_height = Double.parseDouble(height);
-                Double int_weight = Double.parseDouble(weight);
-                Double BMI = BMI_Calculator(int_weight, int_height);
+                Double height = input.nextDouble();
+                Double weight = input.nextDouble();
+                Double BMI = BMI_Calculator(weight, height);
                 String status;
                 if(BMI <= 18.5)
                     status = "Underweight";
@@ -30,8 +27,8 @@ public class SecCQ2{
                     status = "Obese";
 
                 pw.println("Name : " + name);
-                pw.println("Height : " + df2.format(int_height));
-                pw.println("Weight : " + df1.format(int_weight));
+                pw.println("Height : " + height);
+                pw.println("Weight : " + weight);
                 pw.println("BMI : " + df2.format(BMI));
                 pw.println("Status : " + status);
                 pw.println();
