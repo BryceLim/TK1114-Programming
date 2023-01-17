@@ -1,0 +1,21 @@
+Receipt for (Name)
+
+Package : (Package name)
+Adult             (Price)   xN    subtotal
+Children          (Price)   xN    subtotal
+Senior            (Price)   xN    subtotal
+                            ----------------
+                                   subtotal
+
+Package : (Package name)
+Adult             (Price)   xN    subtotal
+Children          (Price)   xN    subtotal
+Senior            (Price)   xN    subtotal
+                            ----------------
+                                   subtotal
+
+---------------------------------------------
+Total                            total price           
+---------------------------------------------
+
+Please present this receipt upon collection of tickets
