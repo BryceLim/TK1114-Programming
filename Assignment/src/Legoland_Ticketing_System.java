@@ -13,9 +13,9 @@ public class Legoland_Ticketing_System {
 		int total_price = 0;
 		int sub_total = 0;
 		char buy_more = 'y';
-		String name = new String();
+		String name;
 		
-		name = WELCOME();
+		name = WELCOME(); //display welcome message and ask user to input name(prints name to receipt file)
 		package_price = PACKAGE_PRICE(NATIONALITY()); //save package price
 		while(buy_more == 'y'){
 			sub_total = 0;
