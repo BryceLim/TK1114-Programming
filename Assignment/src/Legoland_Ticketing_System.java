@@ -231,7 +231,7 @@ public class Legoland_Ticketing_System {
 		pw.println("Adult             (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM" + (package_price[type_of_package][1]*num_of_guest[0]) + ".00");
 		pw.println("Children          (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[1] + "    RM" + (package_price[type_of_package][0]*num_of_guest[1]) + ".00");
 		pw.println("Senior            (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[2] + "    RM" + (package_price[type_of_package][0]*num_of_guest[2]) + ".00");
-		pw.println("Children under 3  (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM0.00");
+		pw.println("Children under 3  (Free)       x" + num_of_guest[0] + "    RM0.00");
 		pw.println("                                  --------------");
 		pw.println("                                     RM" + sub_total + ".00");
 		pw.println();
