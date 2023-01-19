@@ -25,15 +25,15 @@ public class Legoland_Ticketing_System {
 				//if back is chosen, the while loops remains true
 			}
 			num_of_guest = NUMBER_OF_GUEST(package_price, type_of_package); //save the number of guest
-			sub_total = SUB_TOTAL(num_of_guest, type_of_package, package_price);
-			total_price += sub_total; //save the total price of the ticket
-			GENERATE_SUBTOTAL(package_price, type_of_pass, type_of_package, num_of_guest, sub_total);
-			buy_more = YES_OR_NO(buy_more);
+			sub_total = SUB_TOTAL(num_of_guest, type_of_package, package_price); //save the subtotal of the price of ticket
+			GENERATE_SUBTOTAL(package_price, type_of_pass, type_of_package, num_of_guest, sub_total);//print the details of the tickets chosen in receipt file
+			total_price += sub_total; //add the subtotal to the the total price of the ticket
+			buy_more = YES_OR_NO(buy_more); //determine whether the customer wants to buy more tickets
 			System.out.println();
 		}
-		System.out.printf("Total price = RM%.2f\n", (double)total_price);
+		System.out.printf("Total price = RM%.2f\n", (double)total_price); //print the total price onto the console
 		System.out.println("Receipt succesfully generated");
-		GENERATE_TOTAL(total_price);
+		GENERATE_TOTAL(total_price); //print the total price into the receipt file
 	}
 
 	//Print the welcome statements
@@ -157,10 +157,12 @@ public class Legoland_Ticketing_System {
 		return type_of_package;
 	}
 
+	//Show the prices of the package according to age group
 	public static void SHOW_PACKAGE_PRICES(int package_num, int[][] package_price){
 		System.out.println("   Children        : RM" + package_price[package_num][0] +".00\n   Adult           : RM" + package_price[package_num][1] + ".00\n   Senior          : RM" + package_price[package_num][0] + ".00\n   Children under 3: Free Admission");
 	}
 
+	//To determine the name of the package chosen
 	public static String NAME_OF_PACKAGE(int type_of_package){
 		String name_of_package;
 		switch(type_of_package){
@@ -202,6 +204,7 @@ public class Legoland_Ticketing_System {
 		return sub_total;
 	}
 	
+	//To determine whether the customer wishes to purchase more tickets
 	public static char YES_OR_NO(char buy_more){
 		String yes_or_no;
 		String yes = "yes";
@@ -222,6 +225,7 @@ public class Legoland_Ticketing_System {
 		return(buy_more);
 	}
 
+	//To print the details of the subtotal into the receipt
 	public static void GENERATE_SUBTOTAL(int[][] package_price, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
 		pw.println("Package : " + NAME_OF_PACKAGE(type_of_package));
 		pw.println("Adult             (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM" + (package_price[type_of_package][1]*num_of_guest[0]) + ".00");
@@ -234,6 +238,7 @@ public class Legoland_Ticketing_System {
 		
 	}
 
+	//To print the total price into the receipt
 	public static void GENERATE_TOTAL(int total_price){
 		pw.println("------------------------------------------------");
 		pw.println("Total price                          RM"+ total_price + ".00");
