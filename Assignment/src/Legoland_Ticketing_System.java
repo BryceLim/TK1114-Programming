@@ -202,7 +202,7 @@ public class Legoland_Ticketing_System {
 		num_of_guest[1] = input.nextInt();
 		System.out.print("Senior             (RM"+package_price[type_of_package][0] +".00) : ");
 		num_of_guest[2] = input.nextInt();
-		System.out.print("Children under 3        (Free): ");
+		System.out.print("Children under 3       (Free) : ");
 		num_of_guest[3] = input.nextInt();
 		System.out.println();
 		return num_of_guest;
