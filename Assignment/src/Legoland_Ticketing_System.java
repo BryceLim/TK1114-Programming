@@ -28,25 +28,13 @@ public class Legoland_Ticketing_System {
 			num_of_guest = NUMBER_OF_GUEST(package_price, type_of_package); //save the number of guest
 			sub_total = SUB_TOTAL(num_of_guest, type_of_package, package_price);
 			total_price += sub_total; //save the total price of the ticket
-			pw.println("Package : " + NAME_OF_PACKAGE(type_of_package));
-			pw.println("Adult             (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM" + (package_price[type_of_package][1]*num_of_guest[0]) + ".00");
-			pw.println("Children          (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[1] + "    RM" + (package_price[type_of_package][0]*num_of_guest[1]) + ".00");
-			pw.println("Senior            (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[2] + "    RM" + (package_price[type_of_package][0]*num_of_guest[2]) + ".00");
-			pw.println("Children under 3  (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM0.00");
-			pw.println("                                  --------------");
-			pw.println("                                     RM" + sub_total + ".00");
-			pw.println();
-			buy_more = 'a';
-			buy_more = yes_or_no(buy_more);
+			GENERATE_SUBTOTAL(package_price, type_of_pass, type_of_package, num_of_guest, sub_total);
+			buy_more = YES_OR_NO(buy_more);
 			System.out.println();
 		}
 		System.out.printf("Total price = RM%.2f\n", (double)total_price);
-		pw.println("------------------------------------------------");
-		pw.println("Total price                          RM"+ total_price + ".00");
-		pw.println("------------------------------------------------");
-		pw.println();
-		pw.println("Please present this receipt upon collection of tickets");
-		pw.close();
+		System.out.println("Receipt succesfully generated");
+		GENERATE_TOTAL(total_price);
 	}
 
 	//Print the welcome statements
@@ -215,12 +203,13 @@ public class Legoland_Ticketing_System {
 		return sub_total;
 	}
 	
-	public static char yes_or_no(char buy_more){
+	public static char YES_OR_NO(char buy_more){
 		String yes_or_no;
 		String yes = "yes";
 		String no = "no";
 		String y = "y";
 		String n = "n";
+		buy_more = 'a';
 		while(!(buy_more == 'y' || buy_more == 'n')){
 		System.out.println("Do you wish to buy more tickets? yes/no");
 		yes_or_no = input.next();
@@ -234,10 +223,26 @@ public class Legoland_Ticketing_System {
 		return(buy_more);
 	}
 
-	/*public static void GENERATE_RECEIPT(String name, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
-		File receipt = new File("Receipt_for_" + name + ".txt");
+	public static void GENERATE_SUBTOTAL(int[][] package_price, int type_of_pass, int type_of_package, int[] num_of_guest, int sub_total){
+		pw.println("Package : " + NAME_OF_PACKAGE(type_of_package));
+		pw.println("Adult             (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM" + (package_price[type_of_package][1]*num_of_guest[0]) + ".00");
+		pw.println("Children          (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[1] + "    RM" + (package_price[type_of_package][0]*num_of_guest[1]) + ".00");
+		pw.println("Senior            (RM" + package_price[type_of_package][0] + ".00)   x" + num_of_guest[2] + "    RM" + (package_price[type_of_package][0]*num_of_guest[2]) + ".00");
+		pw.println("Children under 3  (RM" + package_price[type_of_package][1] + ".00)   x" + num_of_guest[0] + "    RM0.00");
+		pw.println("                                  --------------");
+		pw.println("                                     RM" + sub_total + ".00");
+		pw.println();
 		
-	}*/
+	}
+
+	public static void GENERATE_TOTAL(int total_price){
+		pw.println("------------------------------------------------");
+		pw.println("Total price                          RM"+ total_price + ".00");
+		pw.println("------------------------------------------------");
+		pw.println();
+		pw.println("Please present this receipt upon collection of tickets");
+		pw.close();
+	}
 
 	//Save price according to the nationality
 	public static int[][] PACKAGE_PRICE(int nationality){
