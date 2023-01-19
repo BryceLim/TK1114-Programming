@@ -238,7 +238,7 @@ public class Legoland_Ticketing_System {
 		
 	}
 
-	//To print the total price into the receipt
+	//To print the total price into the receipt file
 	public static void GENERATE_TOTAL(int total_price){
 		pw.println("------------------------------------------------");
 		pw.println("Total price                          RM"+ total_price + ".00");
